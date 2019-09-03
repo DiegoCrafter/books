@@ -28,6 +28,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+      @guest
+      @else
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -71,6 +73,7 @@
                         </li>
         </ul>
       </div>
+      @endguest
     </div>
   </nav>
 <body class="">

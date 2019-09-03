@@ -5,23 +5,23 @@
         <div class="container">
           <div class="section section-text">
                 <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h1 class="title">{{ $post->name }}</h1>
+                        <h3>{{ $post->name }}</h3>
                         <br>
                       </div>
             <div class="row">
               <div class="col-md-8 ml-auto mr-auto">
-                <h3 class="title">Resumen</h3>
+                <h3>Resumen</h3>
                 <p>{{ $post->excerpt }}</p>
                
               </div>
               <div class="col-md-8 ml-auto mr-auto">
-                <h3 class="title">Post:</h3>
+                <h3>Post:</h3>
                 <p>{!! $post->body !!}</p>
               </div>
             </div>
           </div>
           <div class="section col-md-8 ml-auto mr-auto">
-                <h3 class="title">Imagenes</h3>
+                <h3>Imagenes</h3>
                 <div class="row">
                   <div class="col-md-4">
                     @if($post->file)
