@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::resource('posts', 'Api\PostController');
+Route::get('/post/{slug}', 'Api\PostController@show')->name('post');

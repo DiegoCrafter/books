@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\Category;
 use App\Tag;
+use DB;
 
 class PostController extends Controller
 {
@@ -29,8 +30,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'DESC')->get();
-
+        $posts = Post::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->get();
         return $posts;
     }
 
@@ -40,9 +40,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $post = Post::find($id);
+        $post = Post::where('slug', $slug)->with('user')->with('tags')->with('category')->get();
         return $post;
     }
 

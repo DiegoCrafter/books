@@ -3,7 +3,7 @@
 <link href="{{ asset('demo/demo.css') }}" rel="stylesheet">
 <link href="{{ asset('demo/vertical-nav.css') }}" rel="stylesheet">
 <body class="login-page sidebar-collapse">
-  <div class="page-header header-filter" filter-color="primary" :after style="background-image: url('/img/header-6.jpg'); background-size: cover; background-position: bottom center;">
+  <div class="page-header header-filter" filter-color="primary" style="background-image: url('/img/header-6.jpg'); background-size: cover; background-position: bottom center;">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
