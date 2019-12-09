@@ -1,22 +1,35 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
-<div class="form-group">
-	{{ Form::label('category_id', 'Categorías', ['class' => 'bmd-label-floating' ]) }}
+<div class="ui form">
+	<div class="field">
+	{{ Form::label('category_id', 'Categorías', ['class' => 'field' ]) }}
 	{{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+	</div>
 </div> 
-<div class="form-group">
-    {{ Form::label('name', 'Nombre de la etiqueta', ['class' => 'bmd-label-floating']) }}
-    {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
+<br>
+<div class="ui form">
+	<div class='field'>
+    {{ Form::label('name', 'Titulo de la publicación', ['class' => 'bmd-label-floating']) }}
+	{{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
+	</div>
 </div>
-<div class="form-group">
+<br>
+<div class="ui form">
+	<div class='field'>
     {{ Form::label('slug', 'URL amigable') }}
-    {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
+	{{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
+	</div>
 </div>
-<div class="form-group">
+<br>
+<div class="ui form">
+	<div class='field'>
     {{ Form::label('image', 'Imagen') }}
-    {{ Form::file('image') }}
+	{{ Form::file('image') }}
+	</div>
 </div>
-<div class="form-group">
+<br>
+<div class="ui form">
+	<div class='field'>
 	{{ Form::label('slug', 'Estado') }}
 	<label>
 		{{ Form::radio('status', 'PUBLISHED') }} Publicado
@@ -24,10 +37,14 @@
 	<label>
 		{{ Form::radio('status', 'DRAFT') }} Borrador
 	</label>
+	</div>
 </div>
-<div class="form-group">
+<br>
+<div class="ui form">
+	<div class='field'>
 	{{ Form::label('tags', 'Etiquetas') }}
-	<div>
+	</div>
+	<div class='field'>
 	@foreach($tags as $tag)
 		<label>
 			{{ Form::checkbox('tags[]', $tag->id) }} {{ $tag->name }}
@@ -35,16 +52,23 @@
 	@endforeach
 	</div>
 </div>
-<div class="form-group">
-    {{ Form::label('excerpt', 'Extracto') }}
-    {{ Form::textarea('excerpt', null, ['class' => 'form-control', 'rows' => '2']) }}
+<br>
+<div class="ui form">
+	<div class="field">
+    {{ Form::label('excerpt', 'Resumen') }}
+	{{ Form::textarea('excerpt', null, ['class' => 'form-control', 'rows' => '2']) }}
+	</div>
 </div>
-<div class="form-group">
+<br>
+<div class="ui form">
+	<div class="field">
     {{ Form::label('body', 'Descripción') }}
-    {{ Form::textarea('body', null, ['class' => 'form-control']) }}
+	{{ Form::textarea('body', null) }}
+	</div>
 </div>
+<br>
 <div class="submit text-center">
-                <input type="submit" class="btn btn-primary btn-raised btn-round" value="Publicar">
+                <input type="submit" class="ui button blue" value="Publicar">
               </div>
 
 @section('scripts')

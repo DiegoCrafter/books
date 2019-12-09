@@ -1,54 +1,47 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="main main-raised">
-        <div class="container">
-          <div class="section section-text">
-                <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h3>{{ $post->name }}</h3>
-                        <br>
-                      </div>
-            <div class="row">
-              <div class="col-md-8 ml-auto mr-auto">
-                <h3>Resumen</h3>
-                <p>{{ $post->excerpt }}</p>
-               
-              </div>
-              <div class="col-md-8 ml-auto mr-auto">
-                <h3>Post:</h3>
-                <p>{!! $post->body !!}</p>
-              </div>
-            </div>
+@extends('layouts.app') @section('content')
+<div class="ui vertical stripe segment" style="padding: 6%;">
+    <div class="ui container">
+      <div class="ui">
+          <h2 class="ui dividing header">
+              {{ $post->name }}
+          </h2>
+          <div class="panel-heading">
+              Categoría: 
+              <a href="{{ route('category', $post->category->slug) }}">
+                  {{ $post->category->name }}
+              </a>
           </div>
-          <div class="section col-md-8 ml-auto mr-auto">
-                <h3>Imagenes</h3>
-                <div class="row">
-                  <div class="col-md-4">
-                    @if($post->file)
-                    <img class="img-raised rounded img-fluid" alt="Raised Image" src="{{ $post->file }}">
-                    @endif
-                </div>
-                </div>
-              </div>
-          <div class="section section-blog-info">
-              
-            <div class="row">
-              <div class="col-md-8 ml-auto mr-auto">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="blog-tags">
-                      Etiquetas:
-                      @foreach($post->tags as $tag)
-                      <span class="badge badge-primary badge-pill">{{ $tag->name }}</span>
-                      @endforeach
-                    </div>
-                  </div>
-                </div>
-                <hr>
-              </div>
-            </div>
+          <br>
+          <div class="introduction">
+              <p>{{ $post->excerpt }}</p>
           </div>
+            <p>{!! $post->body !!}</p>
+            @if($post->file)
+            <div class="image">
+                <img src="{{ $post->file }}">
+            </div>
+            @endif
         </div>
+        <br>
+        <div class="item">
+            Etiquetas:
+            @foreach($post->tags as $tag)
+            <a href="{{ route('tag', $tag->slug) }}">
+                {{ $tag->name }}
+            </a>
+            @endforeach
+        </div>
+        <div class="ui small comments">
+                <h3 class="ui dividing header">Comments</h3>
+                <form class="ui reply form">
+                  <div class="field">
+                    <textarea></textarea>
+                  </div>
+                  <div class="ui blue labeled submit icon button">
+                    <i class="icon edit"></i> Agregar comentario
+                  </div>
+                </form>
+              </div>
       </div>
-      
+    </div>
 @endsection

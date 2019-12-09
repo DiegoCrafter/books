@@ -1,17 +1,26 @@
-<div class="form-group">
-    {{ Form::label('name', 'Nombre de la etiqueta') }}
+<div class="ui form">
+    <div class="field">
+    {{ Form::label('name', 'Nombre de la categoria') }}
     {{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
+    </div>
 </div>
-<div class="form-group">
+<br>
+<div class="ui form">
+    <div class="field">
     {{ Form::label('slug', 'URL amigable') }}
     {{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
+    </div>
 </div>
-<div class="form-group">
+<br>
+<div class="ui form">
+    <div class="field">
     {{ Form::label('body', 'Descripción') }}
     {{ Form::textarea('body', null, ['class' => 'form-control']) }}
+    </div>
 </div>
-<div class="form-group">
-    {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
+<br>
+<div class="field">
+    {{ Form::submit('Guardar', ['class' => 'ui button blue']) }}
 </div>
 
 @section('scripts')
