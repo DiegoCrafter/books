@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('posts', 'Api\PostController');
 Route::get('/post/{slug}', 'Api\PostController@show')->name('post');
+Route::get('/tasa', 'Api\PostController@tasaindex')->name('tasa');
+Route::get('/dolar', 'Api\PostController@dolarindex')->name('dolar');

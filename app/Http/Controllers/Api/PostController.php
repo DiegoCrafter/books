@@ -9,7 +9,7 @@ use App\Http\Requests\PostUpdateRequest;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Storage;
-
+use App\Tasa;
 use App\Post;
 use App\Category;
 use App\Tag;
@@ -44,6 +44,20 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->with('user')->with('tags')->with('category')->get();
         return $post;
+    }
+
+    public function tasaindex()
+    {
+        $tasa = Tasa::orderBy('id', 'ASC')->where('moneda','SOLES')->get();
+        $time = Tasa::max('created_at');
+        return ['data' => $tasa, 'time' => $time ];
+    }
+
+    public function dolarindex()
+    {
+        $tasa = Tasa::orderBy('id', 'ASC')->where('moneda','DOLARES')->get();
+        $time = Tasa::max('created_at');
+        return ['data' => $tasa, 'time' => $time ];
     }
 
 }
